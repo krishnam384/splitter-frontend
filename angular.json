@@ -24,9 +24,16 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "splitter"
+    }
+  },
+  "defaultProject": "splitter",
+  "cli": {
+    "analytics": "43a01315-30a4-4345-9c42-d7194755c6e1"
+  }
 }

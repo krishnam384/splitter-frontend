@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="/"><strong>Splitter</strong></a>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+  
+      <span class="navbar-toggler-icon"></span>
+  
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+      <ul class="navbar-nav">
+      </ul>
+  
+    </div>
+  
+  </nav>
+  
+  <div class="row p-0 m-0">
+  
+    <div class="col-sm"></div>
+  
+    <div class="col-sm p-5">
+  
+      <h2 class="form-signin-heading">Split the Bill</h2>
+
+
+      <label for="inputAmount" class="sr-only">Total Amount</label>
+  
+      <input type="number" id="inputAmount" class="form-control" [(ngModel)]="amount" placeholder="Total Amount" required>
+  
+      <br>
+
+      <label for="inputName" class="sr-only">Paid by</label>
+  
+      <input type="text" id="inputName" class="form-control" [(ngModel)]="name" placeholder="Paid by" required autofocus>
+  
+      <br>
+  
+      <label for="inputPersons" class="sr-only">Number of Persons</label>
+  
+      <input type="number" id="inputPersons" class="form-control" [(ngModel)]="persons" placeholder="No. of Persons" required>
+  
+      <br>
+  
+      <button class="btn btn-lg btn-primary btn-block" type="button" (click)="calculateBill()">Calculate</button>
+
+      <div *ngIf="calculated_Bill">
+        <h2>Others Must pay {{this.result | currency:'INR'}} to {{this.name}} </h2>
+      </div>
+  
+    </div>
+  
+    <div class="col-sm"></div>
+  
+  </div>
+  

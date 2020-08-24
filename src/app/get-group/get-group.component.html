@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="/"><strong>Splitter</strong></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav">
+    </ul>
+
+  </div>
+
+</nav>
+
+<div class="row p-0 m-0">
+
+  <div class="col-sm"></div>
+
+  <div class="col-sm p-5">
+
+    <h2 class="form-signin-heading">Group Name: {{groupName}}</h2>
+
+    <h2>Group Members:</h2>
+
+    <span *ngFor="let user of users "> {{user.username}}</span>
+
+    <label for="billName" class="sr-only">Bill Name</label>
+
+    <input type="text" id="billName" class="form-control" [(ngModel)]="billName" placeholder="Bill Name" required>
+
+    <br>
+
+
+    <label for="inputAmount" class="sr-only">Paid by</label>
+
+    <input type="text" id="inputAmount" class="form-control" [(ngModel)]="inputAmount" placeholder="Total Amount"
+      required autofocus>
+
+    <br>
+
+    <label>Paid by</label>
+    <select [(ngModel)]="paidPerson" #category="ngModel" name="paidPerson" class="form-control" id="category"
+      placeholder="Paid by" required>
+      <option *ngFor="let user of users" [value]="user.username">{{user.username}}</option>
+    </select>
+
+    <br>
+
+
+
+
+    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="calculateBill()">Calculate</button>
+
+
+   <div *ngIf="allBills.length>0">
+      <div *ngFor="let biller of allBills" class="col-md-4">
+        <div *ngFor="let bill of biller.data">
+          <div *ngIf="bill.isPaid">
+
+            <div class="card">
+              <div class="card-header">
+                <h5>{{biller.billName | uppercase}}</h5>
+              </div>
+              <div class="card-body">
+
+                <p class="card-text">Paid by: {{bill.name}}</p>
+                <div class="panel-footer"> Amount: {{bill.amountPaid}}<br />
+                  <br /><br /><a [routerLink]="" class="btn btn-primary">Details</a>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+          
+
+
+
+
+        <br />
+      </div>
+
+    </div>
+    <div *ngIf="allBills.length==0">{{message}}</div>
+
+  </div>
+
+  <div class="col-sm"></div>
+
+</div>
